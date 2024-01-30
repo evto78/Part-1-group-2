@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float turnSpeed = 50.0f;
     //Charge is how much force the bullet will be launched with
     float charge = 0.0f;
+    float maxCharge = 700.0f;
     public GameObject bullet;
     public Transform firePoint;
     
@@ -23,7 +24,15 @@ public class Player : MonoBehaviour
         //Spawns in bullet with SPACE and the longer you hold it the more force is given to the bullet
         if (Input.GetKey(KeyCode.Space))
         {
-            charge += (10 * Time.deltaTime);
+            if (charge < maxCharge)
+            {
+                Debug.Log("Current charge " + charge);
+                charge += (500 * Time.deltaTime);
+                if (charge > maxCharge)
+                {
+                    charge = maxCharge;
+                }
+            }
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
