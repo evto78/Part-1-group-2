@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
         {
             if (charge < maxCharge)
             {
+                //each frame you hold the SPACE key down charge gets higher until it reaches a max
                 Debug.Log("Current charge " + charge);
                 charge += (500 * Time.deltaTime);
                 if (charge > maxCharge)
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             Debug.Log("Bullet spawned with " + charge + " force.");
+            //spawn in the bullet at the firepoint
             var bulletSpawned = Instantiate(bullet, firePoint.position, firePoint.rotation);
             //get the component of the bullets script and run the function "SetForce" to charge
             bulletSpawned.GetComponent<Bullet>().SetForce(charge);
