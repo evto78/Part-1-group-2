@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float force = 0f;
+
+    private void Awake()
     {
         
+    }
+
+    public void SetForce(float incomingForce)
+    {
+        force = incomingForce;
+        Debug.Log(force);
     }
 
     // Update is called once per frame
