@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public float speed = 1f;
+
     void Update()
     {
-        
+        transform.Translate(-speed * Time.deltaTime, 0, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
